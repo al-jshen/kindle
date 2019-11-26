@@ -1,0 +1,105 @@
+:root {
+  --sidebar-width: 20%;
+  --background-color: #282828;
+  --title-font-family: "Roboto";
+  --title-font-size: 2em;
+  --body-font-family: "Roboto";
+  --body-font-size: 1.05em;
+}
+
+.App {
+    text-align: center;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: var(--background-color);
+    font-family: "Roboto";
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #61dafb;
+}
+
+li {
+    margin: 1em 0;
+}
+
+.sidebar {
+    display: flex;
+    direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: var(--sidebar-width);
+    border: 1px solid blue;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - var(--sidebar-width));
+    border: 1px solid red;
+}
+
+.writeContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea, input {
+    background-color: var(--background-color);
+    color: inherit;
+    font-size: inherit;
+    resize: none;
+    padding: 5px;
+    border: none;
+}
+
+textarea:focus, input:focus { 
+    outline: 0;
+}
+.titleInputBox {
+    width: 90%;
+    height: 5%;
+    padding: 1% 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    font-family: var(--title-font-family);
+    font-size: var(--title-font-size);
+}
+
+.bodyInputBox {
+    height: 95%;
+    width: 90%;
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    line-height: 1.5em;
+}
