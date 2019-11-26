@@ -1,10 +1,12 @@
 :root {
   --sidebar-width: 20%;
+  --nav-height: 7.5%;
   --background-color: #282828;
+  --accent-color: #61dafb;
   --title-font-family: "Roboto";
   --title-font-size: 2em;
   --body-font-family: "Roboto";
-  --body-font-size: 1.05em;
+  --body-font-size: 1em;
 }
 
 .App {
@@ -40,7 +42,7 @@ a {
 }
 
 a:hover {
-    color: #61dafb;
+    color: var(--accent-color);
 }
 
 li {
@@ -49,11 +51,30 @@ li {
 
 .sidebar {
     display: flex;
-    direction: column;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;;
     width: var(--sidebar-width);
-    border: 1px solid blue;
+    border-right: 1px solid var(--accent-color);
+}
+
+.nav {
+    width: 80%;
+    height: var(--nav-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding: 1vh 0;
+    margin-bottom: 2vh;
+}
+
+.toolbar {
+    height: calc(100% - var(--nav-height));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .main {
@@ -62,7 +83,6 @@ li {
     justify-content: center;
     align-items: center;
     width: calc(100% - var(--sidebar-width));
-    border: 1px solid red;
 }
 
 .writeContainer {
@@ -86,11 +106,12 @@ textarea, input {
 textarea:focus, input:focus { 
     outline: 0;
 }
+
 .titleInputBox {
     width: 90%;
     height: 5%;
     padding: 1% 0;
-    margin-bottom: 10px;
+    margin-bottom: 2.5%;
     border-bottom: 1px solid white;
     font-family: var(--title-font-family);
     font-size: var(--title-font-size);
@@ -103,3 +124,13 @@ textarea:focus, input:focus {
     font-size: var(--body-font-size);
     line-height: 1.5em;
 }
+
+::-webkit-scrollbar {
+    width: 1px;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+}
+

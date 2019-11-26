@@ -5,8 +5,8 @@ class Write extends Component {
     render() {
         return (
             <div className="writeContainer">
-                <input type="text" className="titleInputBox" />
-                <textarea className="bodyInputBox" />
+                <input type="text" placeholder="Title" className="titleInputBox" />
+                <textarea placeholder="Start writing here..." className="bodyInputBox" />
             </div>
         );
     }
