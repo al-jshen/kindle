@@ -21,11 +21,12 @@ class Browse extends Component {
     //     this.props.history.push('/login');
     // }
 
+
     render() {
         // const acc = store.get('accInfo')
         return (
             <div>
-                <h2>testing</h2>
+
             </div>
         );
     }

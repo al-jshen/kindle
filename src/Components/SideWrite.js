@@ -6,7 +6,7 @@ class SideWrite extends Component {
             <div>
                 sidewrite
             </div>
-        ); 
+        );
     }
 }
 

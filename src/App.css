@@ -29,6 +29,7 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
+    padding: 2%;
 }
 
 ul {
@@ -66,7 +67,7 @@ li {
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid white;
-    padding: 1vh 0;
+    padding: 2vh 0;
     margin-bottom: 2vh;
 }
 
