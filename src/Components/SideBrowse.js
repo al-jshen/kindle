@@ -10,32 +10,43 @@ class SideBrowse extends Component {
 
     handleProcess = (e) => {
         e.preventDefault();
-        // dialog.showOpenDialog((filename) => {
-        //     if (filename === undefined) {
-        //         alert('No file selected.');
-        //         return;
-        //     } 
-
-        //     fs.readFile(filename[0], 'utf8', (err, data) => {
-        //         if (err) {
-        //             alert('Error!');
-        //         }
-        //         const readDat = data;
-        //     })
-        // })
         dialog.showOpenDialog({
             filters: [
-                { name: "Text", extensions: ['txt'] }
+                { name: "Text File", extensions: ['txt'] }
             ]
-        }).then((result) => {
-            const fp = result.filePaths[0];
-            fs.readFile(fp, 'utf8', (err, data) => {
+        }, (filename) => {
+                fs.readFile(filename[0], 'utf8', (err, data) => {
                 if (err) {
                     alert('Error!');
                 }
-                alert(data);
+
+                const processed = this.processClippings(data);
+
+                dialog.showSaveDialog({
+                    filters: [
+                        { name: "JSON File", extensions: ['json'] }
+                    ]
+                }, (filename) => {
+                    fs.writeFile(filename, processed, {}, () => {
+                        alert('Processed!')
+                    });
+                })
             })
         })
+
+        // dialog.showOpenDialog({
+        //     filters: [
+        //         { name: "Text", extensions: ['txt'] }
+        //     ]
+        // }).then((result) => {
+        //     const fp = result.filePaths[0];
+        //     fs.readFile(fp, 'utf8', (err, data) => {
+        //         if (err) {
+        //             alert('Error!');
+        //         }
+        //         alert(data);
+        //     })
+        // })
     }
 
     processClippings = (txt) => {
@@ -67,7 +78,7 @@ class SideBrowse extends Component {
                processed[title]['highlights'].push(entry); 
             }
          })
-        return Object.values(processed);
+        return JSON.stringify(Object.values(processed));
     }
 
     render() {
